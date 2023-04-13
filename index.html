@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 이서윤체 폰트 적용을 위한 코드 */
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      /*  body태그 자체에 css 요소 부여 */
+      body {
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.jpg");
+        background-size: cover;
+      }
+
+      .container {
+        width: 390px;
+        background-color: #ffc850;
+        height: 100%;
+      }
+
+      .photos {
+        margin-top: 30px;
+      }
+
+      .photo-frame {
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .f-title {
+        font-size: 13px;
+        color: white;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      .f-date {
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      #image1 {
+        background-image: url("./zio1.jpg");
+      }
+
+      #image2 {
+        background-image: url("./zio2.jpg");
+      }
+
+      #image3 {
+        background-image: url("./zio3.jpg");
+      }
+
+      #image4 {
+        background-image: url("./zio4.jpg");
+      }
+      
+      .photo_description {
+        color: white;
+        background-color: #4d76ff;
+
+        width: fit-content;
+        padding: 0 20px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        position: absolute;
+        bottom: 0;
+
+        transform: translate(-50%);
+        left: 50%;
+
+        font-size: 11px;
+
+        opacity: 0;
+      }
+
+      .video {
+        width: 100%;
+        height: 100%;
+      }
+
+      .showText {
+        opacity: 1;
+        transition: opacity 0.5s linear;
+      } 
+
+      .hideText {
+        opacity: 0;
+      }
+    </style>
+
+    <script>
+
+      function showText(number) {
+        if (number === 1) {
+          document.querySelector("#desc1").classList.remove("hideText");
+          document.querySelector("#desc1").classList.add("showText");
+        } else if (number === 2) {
+          document.querySelector("#desc2").classList.remove("hideText");
+          document.querySelector("#desc2").classList.add("showText");
+        } else {
+          document.querySelector("#desc3").classList.remove("hideText");
+          document.querySelector("#desc3").classList.add("showText");
+        }
+      }
+
+      function hideText(number) {
+        if (number === 1) {
+          document.querySelector("#desc1").classList.remove("showText");
+          document.querySelector("#desc1").classList.add("hideText");
+        } else if (number === 2) {
+          document.querySelector("#desc2").classList.remove("showText");
+          document.querySelector("#desc2").classList.add("hideText");
+        } else {
+          document.querySelector("#desc3").classList.remove("showText");
+          document.querySelector("#desc3").classList.add("hideText");
+        }
+      }
+
+      //클릭 기능
+      function alertText(number) {
+        alert(`제 조카 지오는 세상에서 ${number}번째로 귀여워요!  :)`);
+      }
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div id="image1" class="photo-frame"
+              onmouseover="showText(1)" 
+              onmouseout="hideText(1)" 
+              onclick="alertText(1)"
+            >
+                <span id="desc1" class=photo_description>
+                    역시 애기는 잘 때 제일 이쁘다 ♥
+                </span>
+            </div>
+
+            <div id="image2" class="photo-frame"
+              onmouseover="showText(2)" 
+              onmouseout="hideText(2)" 
+              onclick="alertText(2)"
+            >
+                <span id="desc2" class=photo_description>
+                    토끼 지오 보고가세요 ♡
+                </span>
+            </div>
+
+            <div id="image3" class="photo-frame"
+              onmouseover="showText(3)" 
+              onmouseout="hideText(3)" 
+              onclick="alertText(3)"
+            >
+                <span id="desc3" class=photo_description>
+                    이 세상에 강림하신지 100일 ★
+                </span>
+            </div>
+
+            <div class="photo-frame">
+              <iframe
+                src="https://www.youtube.com/embed/ZEuvMWCXKD8"
+                frameborder="0" class="video"
+              ></iframe>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p class="f-title">
+              세상에서 제일 귀여운 우리 지오 :-)
+            </p>
+            <p class="f-date">2022.12.30 ~</p>
+        </div>
+    </div>
+</body>
+</html>
